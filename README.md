@@ -1,6 +1,6 @@
-**🍽️ Recipe App**
+**🍽️ Recipe App-FlavourFi**
 
-Recipe App is a Flask-based web application for creating, managing, and discovering recipes. 
+FlavourFi👩🏻‍🍳 Recipe app is a Flask-based web application for creating, managing, and discovering recipes. 
 Users can sign up, post their own recipes with images, edit/delete them, and explore others' creations. 
 It includes authentication, a badge system, and a responsive UI.
 
