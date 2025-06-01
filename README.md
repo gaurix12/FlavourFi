@@ -1,4 +1,4 @@
-🍽️ Recipe App
+**🍽️ Recipe App**
 
 Recipe App is a Flask-based web application for creating, managing, and discovering recipes. 
 Users can sign up, post their own recipes with images, edit/delete them, and explore others' creations. 
