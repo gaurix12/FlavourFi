@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Add Recipe
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-body p-4">
+                    <h2 class="card-title text-center mb-4">Add a New Recipe</h2>
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+
+                        <div class="mb-3 ">
+                            {{ form.name.label(class="form-label") }}
+                            {{ form.name(class="form-control", placeholder="Enter recipe name") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.description.label(class="form-label") }}
+                            {{ form.description(class="form-control", rows="3", placeholder="Short description of the recipe") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.ingredients.label(class="form-label") }}
+                            {{ form.ingredients(class="form-control", rows="3", placeholder="List of ingredients") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.instructions.label(class="form-label") }}
+                            {{ form.instructions(class="form-control", rows="4", placeholder="Step-by-step instructions") }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.image_url.label(class="form-label") }}
+                            {{ form.image_url(class="form-control", rows="4", placeholder="Give the image link address") }}
+                        </div>
+                        <br>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg rounded-pill">
+                                    Submit Recipe
+                                </button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

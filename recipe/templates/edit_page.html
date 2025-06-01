@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit Recipe
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-body p-4">
+                    <h2 class="card-title text-center mb-4">Edit Recipe</h2>
+
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+
+                        <div class="mb-3">
+                            {{ form.name.label(class="form-label") }}
+                            {{ form.name(class="form-control", placeholder="Enter recipe name") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.description.label(class="form-label") }}
+                            {{ form.description(class="form-control", rows="3", placeholder="Short description of the recipe") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.ingredients.label(class="form-label") }}
+                            {{ form.ingredients(class="form-control", rows="3", placeholder="List of ingredients") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.instructions.label(class="form-label") }}
+                            {{ form.instructions(class="form-control", rows="4", placeholder="Step-by-step instructions") }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.image_url.label(class="form-label") }}
+                            {{ form.image_url(class="form-control", placeholder="Give the image link address") }}
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success btn-lg rounded-pill">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+
+                    <form action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this recipe?');" class="text-center mt-3">
+                        {{ form.hidden_tag() }}
+                        <button type="submit" class="btn btn-lg rounded-pill" style="background-color:red ; color:white">
+                            Delete Recipe
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

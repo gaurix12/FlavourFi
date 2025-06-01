@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>{{ recipe.name }}</h2>
+
+    {% if recipe.image_url %}
+        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}" class="img-fluid mb-4" style="max-width: 400px;">
+    {% endif %}
+
+    <p><strong>Description:</strong> {{ recipe.description }}</p>
+
+    <h4>Ingredients:</h4>
+    <p>{{ recipe.ingredients }}</p>
+
+    <h4>Instructions:</h4>
+    <p>{{ recipe.instructions }}</p>
+
+    <a href="{{ url_for('recipes_page') }}" class="btn btn-secondary mt-3" style="background-color:green">Back to Recipes</a>
+    <a href="{{ url_for('edit_page', recipe_id = recipe.id) }}" class="btn btn-secondary mt-3" style="color:white; background-color:green">Edit Recipe</a>
+
+</div>
+{% endblock %}

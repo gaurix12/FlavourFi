@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="mb-4">Welcome to the Recipe App!</h1>
+    <p class="lead">Discover, share, and save your favorite recipes – all in one place.</p>
+
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('recipes_page') }}" class="btn btn-primary btn-lg mt-4">View Recipes</a>
+        <a href="{{ url_for('add_recipe_page') }}" class="btn btn-success btn-lg mt-4 ml-3" style="background-color:blue">Add New Recipe</a>
+    {% else %}
+        <a href="{{ url_for('login_page') }}" class="btn btn-primary btn-lg mt-4">Login</a>
+        <a href="{{ url_for('register_page') }}" class="btn btn-success btn-lg mt-4 ml-3">Register</a>
+    {% endif %}
+
+    <hr class="my-5">
+
+    <div class="row text-left">
+        <div class="col-md-4">
+            <h3>🍳 Easy to Use</h3>
+            <p>Whether you're a home cook or a seasoned chef, our intuitive interface makes it simple to browse and post recipes with ease.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>📚 Recipe Library</h3>
+            <p>Access a growing collection of delicious recipes, contributed by food lovers like you. Each recipe includes ingredients, instructions, and optional images.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>💬 Share & Connect</h3>
+            <p>Share your culinary creations and inspire others. Rate, comment, and save your favorite dishes to revisit later.</p>
+        </div>
+    </div>
+    <hr class="my-5">
+
+    <p class="text">Start your cooking journey with us today. From comfort food to gourmet meals — it's all here at your fingertips.</p>
+</div>
+{% endblock %}

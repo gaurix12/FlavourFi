@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container mt-4">
+    <h3>Search Results for "{{ query }}"</h3>
+
+    {% if recipes %}
+      <div class="row">
+        {% for recipe in recipes %}
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ recipe.name }}</h5>
+                <p class="card-text">{{ recipe.description[:100] }}...</p>
+                <a href="{{ url_for('view_recipe_page', recipe_id=recipe.id) }}" class="btn btn-primary">View Recipe</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No recipes found.</p>
+    {% endif %}
+  </div>
+{% endblock %}
